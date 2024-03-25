@@ -1,5 +1,6 @@
 // vite.config.js
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import stripCode from 'rollup-plugin-strip-code';
 import { meteor } from 'meteor-vite/plugin';
@@ -60,6 +61,9 @@ const clientCommonConfig = {
             stubValidation: {
                 ignoreDuplicateExportsInPackages: ['react', 'react-dom'],
             },
+        }),
+        react({
+            jsxRuntime: 'classic',
         }),
         excludeBlockStrip({ exclude: 'server' }),
         excludeBlockStripByMode,
