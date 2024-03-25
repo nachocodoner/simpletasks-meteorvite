@@ -64,8 +64,8 @@
   },
   "meteor": {
     "mainModule": {
-      "client": "meteorvite.js",
-      "server": "server/server.js"
+      "client": "./meteorvite.js",
+      "server": "./api/main.js"
     }
   },
   "husky": {

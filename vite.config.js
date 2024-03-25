@@ -59,7 +59,7 @@ const clientCommonConfig = {
     },
     plugins: [
         meteor({
-            clientEntry: 'ui/main.jsx',
+            clientEntry: './ui/main.jsx',
             stubValidation: {
                 ignoreDuplicateExportsInPackages: ['react', 'react-dom'],
                 warnOnly: true,
