@@ -1,6 +1,5 @@
 // vite.config.js
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import stripCode from 'rollup-plugin-strip-code';
 import { meteor } from 'meteor-vite/plugin';
@@ -39,12 +38,9 @@ const clientCommonConfig = {
         emptyOutDir: false,
         target: 'modules',
         rollupOptions: {
-            input: {
-                main: './ui/main.jsx',
-            },
-            output: {
-                entryFileNames: 'client.js',
-            },
+            external: [
+                /^(meteor.*|react|react-dom)/,
+            ],
             plugins: [
                 enableBundleVisualizer && visualizer({ open: true, filename: 'public/stats.html' }),
             ].filter(Boolean),
@@ -60,14 +56,10 @@ const clientCommonConfig = {
     plugins: [
         meteor({
             clientEntry: './ui/main.jsx',
+            externalizeNpmPackages: ['react', 'react-dom'],
             stubValidation: {
                 ignoreDuplicateExportsInPackages: ['react', 'react-dom'],
-                warnOnly: true,
-                disabled: false,
             },
-        }),
-        react({
-            jsxRuntime: 'classic',
         }),
         excludeBlockStrip({ exclude: 'server' }),
         excludeBlockStripByMode,
