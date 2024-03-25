@@ -8,11 +8,11 @@ export const routes = {
   tasks: '/tasks',
 };
 
-const LoginPage = React.lazy(() => import('./pages/auth/sign-in-page'));
-const NotFoundPage = React.lazy(() =>
+const { LoginPage } = React.lazy(() => import('./pages/auth/sign-in-page'));
+const { NotFoundPage } = React.lazy(() =>
   import('./pages/not-found/not-found-page')
 );
-const TasksPage = React.lazy(() => import('./pages/tasks/tasks-page'));
+const { TasksPage } = React.lazy(() => import('./pages/tasks/tasks-page'));
 
 export function Routes() {
   return (

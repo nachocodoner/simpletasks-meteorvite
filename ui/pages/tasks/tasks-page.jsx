@@ -11,7 +11,7 @@ console.log('-> THIS LOG WILL ONLY APPEAR IN PRODUCTION');
 /* production:end */
 
 /* eslint-disable import/no-default-export */
-export default function TasksPage() {
+export function TasksPage() {
   const { hideDone, setHideDone, tasks, pendingCount } = useTasks();
   return (
     <>

@@ -18,7 +18,7 @@ import { useUserId } from 'meteor/react-meteor-accounts';
 import { useLogin } from './hooks/use-login';
 
 /* eslint-disable import/no-default-export */
-export default function SignInPage() {
+export function SignInPage() {
   const userId = useUserId();
   const {
     loginOrCreateUser,
